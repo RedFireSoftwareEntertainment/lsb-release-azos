@@ -16,7 +16,7 @@ url="https://refspecs.linuxfoundation.org/lsb.shtml"
 license=('GPL')
 depends=('sh')
 makedepends=('git')
-source=("git+https://github.com/RedFireSoftwareEntertainment/lsb-release-azos/tree/main/lsb-release/"
+source=("git+https://github.com/RedFireSoftwareEntertainment/lsb-release-azos.git"
         'lsb-release'
         'lsb_release_description.patch'
         'lsb_release_make_man_page_reproducible.patch')
