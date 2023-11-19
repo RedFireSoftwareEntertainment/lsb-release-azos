@@ -26,18 +26,18 @@ sha512sums=('SKIP'
             'ab64a1d236d00a30a48e3af2c5bdfa0aad0183ebe0df4f2b0c6af58530c2a1fdac1b0a5cdd8a1800d5f8405f44562603cddf28eb318b5badaabd49a82e0b7e83')
 
 pkgver() {
-	cd lsb-samples/lsb_release/src
+	cd lsb-release/src
 	printf "%s.r%s.%s" "$(grep -Po 'SCRIPTVERSION="\K[^"]*' lsb_release)" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-	cd lsb-samples/lsb_release/src
+	cd lsb-release/src
 	patch -Np0 -i "$srcdir/lsb_release_description.patch"
 	patch -Np1 -i "$srcdir/lsb_release_make_man_page_reproducible.patch"
 }
 
 build() {
-	cd lsb-samples/lsb_release/src
+	cd lsb-release/src
 	make
 }
 
