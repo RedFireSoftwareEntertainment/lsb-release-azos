@@ -2,4 +2,4 @@
 
 Modified Arch Linux lsb-release package for AZOS GNU/Linux
 
-**ORIGINAL BY ARCH LINUX**
+**[ORIGINAL](https://gitlab.archlinux.org/archlinux/packaging/packages/lsb-release) BY ARCH LINUX**
