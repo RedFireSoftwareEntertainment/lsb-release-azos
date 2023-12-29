@@ -10,7 +10,7 @@ pkgname=lsb-release
 pkgver=2.0.r53.a86f885
 _commit=a86f885597a91cd41837d706bf6a08d4c239a54b
 pkgrel=1
-pkgdesc="LSB version query program"
+pkgdesc="LSB version query program (Modified for Arch Linux)"
 arch=('any')
 url="https://refspecs.linuxfoundation.org/lsb.shtml"
 license=('GPL')
@@ -24,23 +24,23 @@ sha512sums=('SKIP'
             'ab64a1d236d00a30a48e3af2c5bdfa0aad0183ebe0df4f2b0c6af58530c2a1fdac1b0a5cdd8a1800d5f8405f44562603cddf28eb318b5badaabd49a82e0b7e83')
 
 pkgver() {
-	cd lsb-release-azos/lsb_release/src
+	cd src/lsb-release-azos
 	printf "%s.r%s.%s" "$(grep -Po 'SCRIPTVERSION="\K[^"]*' lsb_release)" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-	cd lsb-release-azos/lsb_release/src
+	cd src/lsb-release-azos
 	patch -Np0 -i "$srcdir/lsb_release_description.patch"
 	patch -Np1 -i "$srcdir/lsb_release_make_man_page_reproducible.patch"
 }
 
 build() {
-	cd lsb-release-azos/lsb_release/src
+	cd src/lsb-release-azos
 	make
 }
 
 package() {
-	cd lsb-release-azos/lsb_release/src
+	cd src/lsb-release-azos
 	install -Dm644 lsb_release.1.gz -t "$pkgdir/usr/share/man/man1"
 	install -Dm755 lsb_release -t "$pkgdir/usr/bin"
 }
